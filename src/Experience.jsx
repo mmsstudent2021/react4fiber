@@ -12,15 +12,26 @@ const Experience = () => {
 
   return (
    <>
+
+   <ambientLight intensity={0.5} />
+   <directionalLight
    
-   <mesh ref={knotRef}>
+
+   castShadow
+   intensity={1.5}
+   shadow-mapSize-width={1024}
+   shadow-mapSize-height={1024}
+   position={[1,5,4]}
+   />
+   
+   <mesh castShadow ref={knotRef}>
         <torusKnotGeometry scale={1} />
-        <meshBasicMaterial wireframe  color="mediumpurple" />
+        <meshStandardMaterial   color="mediumpurple" />
     </mesh>
 
-    <mesh position-y={-2} scale={10} rotation-x={-Math.PI * 0.25}>
+    <mesh receiveShadow position-y={-2} scale={10} rotation-x={-Math.PI * 0.25}>
         <planeGeometry  />
-        <meshBasicMaterial color="yellow" />    
+        <meshStandardMaterial color="yellow" />    
     </mesh>
    </>
   )
